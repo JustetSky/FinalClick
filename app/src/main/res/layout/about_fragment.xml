@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.AboutFragment">
+
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+
+        android:text="Hi, new player! In this game you need to click on the button in the center of the screen and get experience points and coins for it. If you want to increase the pressing force, then you need to go to the store. There you can buy upgrades for coins (remember that the level matters!)."
+        android:textSize="18dp"/>
+
+</FrameLayout>

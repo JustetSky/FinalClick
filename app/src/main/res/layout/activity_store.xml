@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Store">
+
+    <TextView
+        android:id="@+id/storeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Final Store"
+        android:textSize="30dp"
+        android:gravity="center"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nullButton"
+        android:text="null"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints"/>
+
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@id/storeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:background="#A6F5F5F5"
+            android:padding="5dp"
+            android:layout_height="80dp">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/doubleUpgrade"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cornerRadius="15dp"
+                android:layout_margin="10dp"
+                android:layout_alignParentRight="true"
+                android:text="BUY"
+                android:textStyle="italic" />
+            <ImageView
+                android:id="@+id/doubleBought"
+                android:visibility="gone"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/ic_bought"/>
+            <ImageView
+                android:id="@+id/doubleImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="15dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/ic_double"
+                />
+            <TextView
+                android:id="@+id/doubleUpdateTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Double Click"
+                android:textColor="@color/blue"
+                android:textSize="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="65dp"
+                />
+            <TextView
+                android:id="@+id/doubleReq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/doubleUpdateTitle"
+                android:layout_toRightOf = "@id/doubleImage"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="35dp"
+                android:text="Req level 3" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/doubleReq"
+                android:layout_toRightOf = "@id/doubleImage"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="35dp"
+                android:text="Costs 100 coins" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:background="#A6F5F5F5"
+            android:padding="5dp"
+            android:layout_height="80dp">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tripleUpgrade"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cornerRadius="15dp"
+                android:layout_margin="10dp"
+                android:layout_alignParentRight="true"
+                android:text="BUY"
+                android:textStyle="italic" />
+            <ImageView
+                android:id="@+id/tripleBought"
+                android:visibility="gone"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/ic_bought"/>
+            <ImageView
+                android:id="@+id/tripleImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="15dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/ic_tripple"
+                />
+            <TextView
+                android:id="@+id/trippleUpdateTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Triple Click"
+                android:textColor="@color/blue"
+                android:textSize="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="65dp"
+                />
+            <TextView
+                android:id="@+id/trippleReq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/trippleUpdateTitle"
+                android:layout_toRightOf = "@id/tripleImage"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="35dp"
+                android:text="Req level 4" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/trippleReq"
+                android:layout_toRightOf = "@id/tripleImage"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="35dp"
+                android:text="Costs 300 coins" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:background="#A6F5F5F5"
+            android:padding="5dp"
+            android:layout_height="80dp">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/superClick"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cornerRadius="15dp"
+                android:layout_margin="10dp"
+                android:layout_alignParentRight="true"
+                android:text="BUY"
+                android:textStyle="italic" />
+            <ImageView
+                android:id="@+id/superBought"
+                android:visibility="gone"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/ic_bought"/>
+            <ImageView
+                android:id="@+id/superImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="15dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/ic_super"
+                />
+            <TextView
+                android:id="@+id/superUpdateTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Super Click"
+                android:textColor="@color/blue"
+                android:textSize="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="65dp"
+                />
+            <TextView
+                android:id="@+id/superReq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/superUpdateTitle"
+                android:layout_toRightOf = "@id/superImage"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="35dp"
+                android:text="Req level 6" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/superReq"
+                android:layout_toRightOf = "@id/superImage"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="35dp"
+                android:text="Costs 600 coins" />
+        </RelativeLayout>
+
+        <!-- Old Store -->
+        <!--
+        <com.google.android.material.button.MaterialButton
+            android:layout_marginTop="10dp"
+            android:id="@+id/doubleUpgrade"
+            style = "@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Double Click "
+            android:textStyle="italic"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Req level 3"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cost 100 coins"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/trippleUpgrade"
+            style = "@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tripple Click "
+            android:textStyle="italic"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Req level 4"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cost 300 coins"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/superClick"
+            style = "@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Super Click "
+            android:textStyle="italic"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Req level 6"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cost 900 coins"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/soon1"
+            style = "@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Coming Soon"
+            android:textStyle="italic"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Req level ?"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cost ??? coins"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/soon2"
+            style = "@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Coming Soon"
+            android:textStyle="italic"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Req level ?"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cost ??? coins"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"/>
+     -->
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
