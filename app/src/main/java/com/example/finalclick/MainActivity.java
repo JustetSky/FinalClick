@@ -2,6 +2,7 @@ package com.example.finalclick;
 
 import static com.example.finalclick.R.id.about;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -20,20 +21,20 @@ public class MainActivity extends AppCompatActivity {
 
     public static UserScore userScore;
     public static TextView coinsView, levelView, progressView;
-    private static Button clickButton, storeButton, aboutButton;
+    private Button aboutButton;
     private SharedPreferences preferences;
 
-    private AtomicInteger changeFragmentIndex = new AtomicInteger();
-    private HideFragment hdAbout = new HideFragment();
-    private AboutFragment frAbout = new AboutFragment();
+    private final AtomicInteger changeFragmentIndex = new AtomicInteger();
+    private final HideFragment hdAbout = new HideFragment();
+    private final AboutFragment frAbout = new AboutFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Buttons
-        clickButton = findViewById(R.id.clickButton);
-        storeButton = findViewById(R.id.storeButton);
+        Button clickButton = findViewById(R.id.clickButton);
+        Button storeButton = findViewById(R.id.storeButton);
         aboutButton = findViewById(R.id.aboutButton);
         //Views
         coinsView = findViewById(R.id.totalCoins);
@@ -54,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //About
-        FragmentTransaction fstart = getSupportFragmentManager().beginTransaction();
-        fstart.replace(about, hdAbout);
-        fstart.commit();
+        FragmentTransaction startFragment = getSupportFragmentManager().beginTransaction();
+        startFragment.replace(about, hdAbout);
+        startFragment.commit();
         aboutButton.setOnClickListener(view -> {
             setChangeFragment();
         });
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private void setChangeFragment(){
         changeFragmentIndex.addAndGet(1);
         if(changeFragmentIndex.get() %2 == 0){
@@ -109,24 +111,34 @@ public class MainActivity extends AppCompatActivity {
             float p = 100 - ((9785-userScore.getExp())*100) / (9785-3576);
             userScore.setProgress(p);
         }
-        else if(9786<exp && exp<18785){
+        else if(9786<exp && exp<19785){
             userScore.setLevel(5);
-            float p = 100 - ((18785-userScore.getExp())*100) / (18785-9786);
+            float p = 100 - ((19785-userScore.getExp())*100) / (19785-9786);
             userScore.setProgress(p);
         }
-        else if(18785<exp && exp<25385){
+        else if(19786<exp && exp<26385){
             userScore.setLevel(6);
-            float p = 100 - ((25385-userScore.getExp())*100) / (25385-16785);
+            float p = 100 - ((26385-userScore.getExp())*100) / (26385-19786);
             userScore.setProgress(p);
         }
-        else if(25385<exp && exp<37295){
+        else if(26386<exp && exp<39295){
             userScore.setLevel(7);
-            float p = 100 - ((37295-userScore.getExp())*100) / (37295-21385);
+            float p = 100 - ((39295-userScore.getExp())*100) / (39295-26386);
             userScore.setProgress(p);
         }
-        else if(37295<exp && exp<49295){
+        else if(39296<exp && exp<52295){
             userScore.setLevel(8);
-            float p = 100 - ((49295-userScore.getExp())*100) / (49295-37295);
+            float p = 100 - ((52295-userScore.getExp())*100) / (52295-39296);
+            userScore.setProgress(p);
+        }
+        else if(52296<exp && exp<67295){
+            userScore.setLevel(9);
+            float p = 100 - ((67295-userScore.getExp())*100) / (67295-52296);
+            userScore.setProgress(p);
+        }
+        else if(67296<exp && exp<73295){
+            userScore.setLevel(10);
+            float p = 100 - ((73295-userScore.getExp())*100) / (73295-67296);
             userScore.setProgress(p);
         }
     }

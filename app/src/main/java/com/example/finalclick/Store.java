@@ -11,8 +11,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Store extends AppCompatActivity {
-    //Buttons
-    private Button nullButton, doubleButton, tripleButton, superButton;
+    private Button doubleButton;
+    private Button tripleButton;
+    private Button superButton;
     private ImageView doubleBought, tripleBought, superBought;
     //Check for update
     private boolean doubleUpdCheck;
@@ -31,7 +32,8 @@ public class Store extends AppCompatActivity {
         doubleButton = findViewById(R.id.doubleUpgrade);
         tripleButton = findViewById(R.id.tripleUpgrade);
         superButton = findViewById(R.id.superClick);
-        nullButton = findViewById(R.id.nullButton);
+        //Null button
+        Button nullButton = findViewById(R.id.nullButton);
         //Check
         doubleBought = findViewById(R.id.doubleBought);
 
@@ -70,7 +72,7 @@ public class Store extends AppCompatActivity {
                     MainActivity.userScore.getCoins());
             if(check == 1){
                 MainActivity.userScore.setCoef(3);
-                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-300);
+                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-250);
                 tripleUpdCheck = true;
                 tripleButton.setVisibility(View.GONE);
                 tripleBought.setVisibility(View.VISIBLE);
@@ -84,7 +86,7 @@ public class Store extends AppCompatActivity {
             }
             else if(check == 3){
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "U need 300 coins to unlock this", Toast.LENGTH_SHORT);
+                        "U need 250 coins to unlock this", Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
@@ -94,7 +96,7 @@ public class Store extends AppCompatActivity {
                     MainActivity.userScore.getCoins());
             if(check == 1){
                 MainActivity.userScore.setIsSuper(true);
-                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-600);
+                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-550);
                 superUpdCheck = true;
                 superButton.setVisibility(View.GONE);
                 superBought.setVisibility(View.VISIBLE);
@@ -108,7 +110,7 @@ public class Store extends AppCompatActivity {
             }
             else if(check == 3){
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "U need 600 coins to unlock this", Toast.LENGTH_SHORT);
+                        "U need 550 coins to unlock this", Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
@@ -171,26 +173,26 @@ public class Store extends AppCompatActivity {
     }
 
     private int tripleCheck(int level, int coins){
-        if(level >= 4 && coins >= 300 &&  !tripleUpdCheck){
+        if(level >= 4 && coins >= 250 &&  !tripleUpdCheck){
             return 1;
         }
         else if(MainActivity.userScore.getLevel() < 4){
             return 2;
         }
-        else if(MainActivity.userScore.getCoins() < 300){
+        else if(MainActivity.userScore.getCoins() < 250){
             return 3;
         }
         return 0;
     }
 
     private int superCheck(int level, int coins){
-        if(level >= 6 && coins >= 600 &&  !superUpdCheck){
+        if(level >= 6 && coins >= 550 &&  !superUpdCheck){
             return 1;
         }
         else if(MainActivity.userScore.getLevel() < 6){
             return 2;
         }
-        else if(MainActivity.userScore.getCoins() < 600){
+        else if(MainActivity.userScore.getCoins() < 550){
             return 3;
         }
         return 0;

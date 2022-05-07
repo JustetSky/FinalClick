@@ -161,7 +161,7 @@
                 android:layout_toRightOf = "@id/tripleImage"
                 android:layout_marginTop="3dp"
                 android:layout_marginLeft="35dp"
-                android:text="Costs 300 coins" />
+                android:text="Costs 250 coins" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -226,7 +226,7 @@
                 android:layout_toRightOf = "@id/superImage"
                 android:layout_marginTop="3dp"
                 android:layout_marginLeft="35dp"
-                android:text="Costs 600 coins" />
+                android:text="Costs 550 coins" />
         </RelativeLayout>
 
         <!-- Old Store -->
