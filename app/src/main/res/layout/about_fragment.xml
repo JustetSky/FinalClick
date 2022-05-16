@@ -10,8 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-
-        android:text="Hi, new player! In this game you need to click on the button in the center of the screen and get experience points and coins for it. If you want to increase the pressing force, then you need to go to the store. There you can buy upgrades for coins (remember that the level matters!)."
+        android:text="В этой игре вам нужно нажать на кнопку в центре экрана и получить за это очки опыта и монеты. Если вы хотите увеличить силу нажатия, то вам нужно перейти в магазин. Там вы можете купить улучшения за монеты (помните, что уровень имеет значение)."
         android:textSize="18dp"/>
 
 </FrameLayout>

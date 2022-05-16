@@ -10,15 +10,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 public class Store extends AppCompatActivity {
-    private Button doubleButton;
-    private Button tripleButton;
-    private Button superButton;
-    private ImageView doubleBought, tripleBought, superBought;
+    private Button doubleButton, tripleButton, superButton, ultimateButton, heavenButton;
+    private ImageView doubleBought, tripleBought, superBought, ultimateBought, heavenBought;
     //Check for update
     private boolean doubleUpdCheck;
     private boolean tripleUpdCheck;
     private boolean superUpdCheck;
+    private boolean ultimateUpdCheck;
+    private boolean heavenUpdCheck;
     //Alert dialog
     private AlertDialog.Builder builder;
     private AlertDialog dialog;
@@ -28,11 +30,18 @@ public class Store extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         //Update buttons
         doubleButton = findViewById(R.id.doubleUpgrade);
+
         tripleButton = findViewById(R.id.tripleUpgrade);
+
         superButton = findViewById(R.id.superClick);
-        //Null button
+
+        ultimateButton = findViewById(R.id.ultimateClick);
+
+        heavenButton = findViewById(R.id.heavenClick);
+        //Staff button
         Button nullButton = findViewById(R.id.nullButton);
         //Check
         doubleBought = findViewById(R.id.doubleBought);
@@ -41,6 +50,10 @@ public class Store extends AppCompatActivity {
 
         superBought = findViewById(R.id.superBought);
 
+        ultimateBought = findViewById(R.id.ultimateBought);
+
+        heavenBought = findViewById(R.id.heavenBought);
+
         loadSave();
 
         doubleButton.setOnClickListener(view -> {
@@ -48,7 +61,7 @@ public class Store extends AppCompatActivity {
                 MainActivity.userScore.getCoins());
             if(check == 1){
                 MainActivity.userScore.setCoef(2);
-                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-100);
+                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-150);
                 doubleUpdCheck = true;
                 doubleButton.setVisibility(View.GONE);
                 doubleBought.setVisibility(View.VISIBLE);
@@ -57,12 +70,12 @@ public class Store extends AppCompatActivity {
             }
             else if(check == 2){
                 Toast toast = Toast.makeText(getApplicationContext(),
-                "U need level 3 to unlock this", Toast.LENGTH_SHORT);
+                "Ваш уровень слишком низок", Toast.LENGTH_SHORT);
                 toast.show();
             }
             else if(check == 3){
                 Toast toast = Toast.makeText(getApplicationContext(),
-                "U need 100 coins to unlock this", Toast.LENGTH_SHORT);
+                "Недостаточно монет для разблокировки", Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
@@ -72,7 +85,7 @@ public class Store extends AppCompatActivity {
                     MainActivity.userScore.getCoins());
             if(check == 1){
                 MainActivity.userScore.setCoef(3);
-                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-250);
+                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-600);
                 tripleUpdCheck = true;
                 tripleButton.setVisibility(View.GONE);
                 tripleBought.setVisibility(View.VISIBLE);
@@ -81,12 +94,12 @@ public class Store extends AppCompatActivity {
             }
             else if(check == 2){
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "U need level 4 to unlock this", Toast.LENGTH_SHORT);
+                        "Ваш уровень слишком низок", Toast.LENGTH_SHORT);
                 toast.show();
             }
             else if(check == 3){
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "U need 250 coins to unlock this", Toast.LENGTH_SHORT);
+                        "Недостаточно монет для разблокировки", Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
@@ -96,7 +109,7 @@ public class Store extends AppCompatActivity {
                     MainActivity.userScore.getCoins());
             if(check == 1){
                 MainActivity.userScore.setIsSuper(true);
-                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-550);
+                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-900);
                 superUpdCheck = true;
                 superButton.setVisibility(View.GONE);
                 superBought.setVisibility(View.VISIBLE);
@@ -105,12 +118,61 @@ public class Store extends AppCompatActivity {
             }
             else if(check == 2){
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "U need level 6 to unlock this", Toast.LENGTH_SHORT);
+                        "Ваш уровень слишком низок", Toast.LENGTH_SHORT);
                 toast.show();
             }
             else if(check == 3){
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "U need 550 coins to unlock this", Toast.LENGTH_SHORT);
+                        "Недостаточно монет для разблокировки", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+
+        ultimateButton.setOnClickListener(view -> {
+            int check = ultimateCheck(MainActivity.userScore.getLevel(),
+                    MainActivity.userScore.getCoins());
+            if(check == 1){
+                MainActivity.userScore.setIsSuper(true);
+                MainActivity.userScore.setChance(2);
+                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-3850);
+                ultimateUpdCheck = true;
+                ultimateButton.setVisibility(View.GONE);
+                ultimateBought.setVisibility(View.VISIBLE);
+                coinsUpdate();
+                saveData();
+            }
+            else if(check == 2){
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "Ваш уровень слишком низок", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            else if(check == 3){
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "Недостаточно монет для разблокировки", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+
+        heavenButton.setOnClickListener(view -> {
+            int check = heavenCheck(MainActivity.userScore.getLevel(),
+                    MainActivity.userScore.getCoins());
+            if(check == 1){
+                MainActivity.userScore.setCoef(7);
+                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-4050);
+                heavenUpdCheck = true;
+                heavenButton.setVisibility(View.GONE);
+                heavenBought.setVisibility(View.VISIBLE);
+                coinsUpdate();
+                saveData();
+            }
+            else if(check == 2){
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "Ваш уровень слишком низок", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            else if(check == 3){
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "Недостаточно монет для разблокировки", Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
@@ -118,11 +180,13 @@ public class Store extends AppCompatActivity {
         nullButton.setOnClickListener(view -> {
             builder = new AlertDialog.Builder(this);
             builder.setTitle("Warning");
-            builder.setMessage("Are u really want to NULL ur progress?");
-            builder.setPositiveButton("yes", (dialogInterface, i) -> {
+            builder.setMessage("Вы действительно хотите сбросить прогресс?");
+            builder.setPositiveButton("Да", (dialogInterface, i) -> {
                 doubleUpdCheck = false;
                 tripleUpdCheck = false;
                 superUpdCheck = false;
+                ultimateUpdCheck = false;
+                heavenUpdCheck = false;
                 saveData();
                 setVisibilities();
                 MainActivity.userScore.setCoins(0);
@@ -130,9 +194,11 @@ public class Store extends AppCompatActivity {
                 MainActivity.userScore.setCoef(1);
                 MainActivity.userScore.setExp(0);
                 MainActivity.userScore.setProgress(0);
+                MainActivity.userScore.setIsSuper(false);
+                MainActivity.userScore.setChance(3);
                 infoUpdate();
             });
-            builder.setNegativeButton("cancel", (dialogInterface, i) -> dialog.dismiss());
+            builder.setNegativeButton("Отмена", (dialogInterface, i) -> dialog.dismiss());
             dialog = builder.create();
             dialog.show();
         });
@@ -153,46 +219,76 @@ public class Store extends AppCompatActivity {
         doubleButton.setVisibility(View.VISIBLE);
         tripleButton.setVisibility(View.VISIBLE);
         superButton.setVisibility(View.VISIBLE);
+        ultimateButton.setVisibility(View.VISIBLE);
+        heavenButton.setVisibility(View.VISIBLE);
         //Check visibility
         doubleBought.setVisibility(View.GONE);
         tripleBought.setVisibility(View.GONE);
         superBought.setVisibility(View.GONE);
+        ultimateBought.setVisibility(View.GONE);
+        heavenBought.setVisibility(View.GONE);
     }
 
     private int doubleCheck(int level, int coins){
-        if(level >= 3 && coins >= 100 &&  !doubleUpdCheck){
+        if(level >= 3 && coins >= 150){
             return 1;
         }
         else if(MainActivity.userScore.getLevel() < 3){
             return 2;
         }
-        else if(MainActivity.userScore.getCoins() < 100){
+        else if(MainActivity.userScore.getCoins() < 150){
             return 3;
         }
         return 0;
     }
 
     private int tripleCheck(int level, int coins){
-        if(level >= 4 && coins >= 250 &&  !tripleUpdCheck){
+        if(level >= 5 && coins >= 600){
             return 1;
         }
-        else if(MainActivity.userScore.getLevel() < 4){
+        else if(MainActivity.userScore.getLevel() < 5){
             return 2;
         }
-        else if(MainActivity.userScore.getCoins() < 250){
+        else if(MainActivity.userScore.getCoins() < 600){
             return 3;
         }
         return 0;
     }
 
     private int superCheck(int level, int coins){
-        if(level >= 6 && coins >= 550 &&  !superUpdCheck){
+        if(level >= 7 && coins >= 900){
             return 1;
         }
-        else if(MainActivity.userScore.getLevel() < 6){
+        else if(MainActivity.userScore.getLevel() < 7){
             return 2;
         }
-        else if(MainActivity.userScore.getCoins() < 550){
+        else if(MainActivity.userScore.getCoins() < 900){
+            return 3;
+        }
+        return 0;
+    }
+
+    private int ultimateCheck(int level, int coins){
+        if(level >= 9 && coins >= 3850){
+            return 1;
+        }
+        else if(MainActivity.userScore.getLevel() < 11){
+            return 2;
+        }
+        else if(MainActivity.userScore.getCoins() < 3850){
+            return 3;
+        }
+        return 0;
+    }
+
+    private int heavenCheck(int level, int coins){
+        if(level >= 13 && coins >= 4050){
+            return 1;
+        }
+        else if(MainActivity.userScore.getLevel() < 13){
+            return 2;
+        }
+        else if(MainActivity.userScore.getCoins() < 4050){
             return 3;
         }
         return 0;
@@ -204,6 +300,8 @@ public class Store extends AppCompatActivity {
         editor.putBoolean("double", doubleUpdCheck);
         editor.putBoolean("triple", tripleUpdCheck);
         editor.putBoolean("super", superUpdCheck);
+        editor.putBoolean("ultimate", ultimateUpdCheck);
+        editor.putBoolean("heaven", heavenUpdCheck);
         editor.commit();
     }
 
@@ -212,6 +310,8 @@ public class Store extends AppCompatActivity {
         doubleUpdCheck = preferences.getBoolean("double", false);
         tripleUpdCheck = preferences.getBoolean("triple", false);
         superUpdCheck = preferences.getBoolean("super", false);
+        ultimateUpdCheck = preferences.getBoolean("ultimate", false);
+        heavenUpdCheck = preferences.getBoolean("heaven", false);
         //Double button
         if (doubleUpdCheck){
             doubleBought.setVisibility(View.VISIBLE);
@@ -238,6 +338,24 @@ public class Store extends AppCompatActivity {
         else{
             superBought.setVisibility(View.GONE);
             superButton.setVisibility(View.VISIBLE);
+        }
+        //Ultimate button
+        if (ultimateUpdCheck){
+            ultimateBought.setVisibility(View.VISIBLE);
+            ultimateButton.setVisibility(View.GONE);
+        }
+        else{
+            ultimateBought.setVisibility(View.GONE);
+            ultimateButton.setVisibility(View.VISIBLE);
+        }
+        //Heaven button
+        if (heavenUpdCheck){
+            heavenBought.setVisibility(View.VISIBLE);
+            heavenButton.setVisibility(View.GONE);
+        }
+        else{
+            heavenBought.setVisibility(View.GONE);
+            heavenButton.setVisibility(View.VISIBLE);
         }
     }
 }

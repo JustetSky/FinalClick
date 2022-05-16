@@ -1,27 +1,29 @@
 package com.example.finalclick;
 
-public class UserScore {
+public class UserScore{
     private int coins = 0;
     private int coef = 1;
     private float exp = 0;
     private int level;
     private float progress = 0;
     private boolean isSuper = false;
+    private int chance = 3;
 
     public void Click() {
         if (isSuper){
             double a = 1 + Math.random()*10;
-            if (a % 3 == 0){
-                coins += 1 * coef * 5;
-                exp += coef * 25 * 5;
+            a = Math.round(a);
+            if (a % chance == 0){
+                coins += coef * 5;
+                exp += coef * 5 * 25;
             }
             else{
-                coins += 1 * coef;
+                coins += coef;
                 exp += coef * 25;
             }
         }
         else{
-            coins += 1 * coef;
+            coins += coef;
             exp += coef * 25;
         }
     }
@@ -51,6 +53,10 @@ public class UserScore {
         return isSuper;
     }
 
+    public int getChance(){
+        return chance;
+    }
+
     //Setters
     public void setCoef(int coef) {
         this.coef = coef;
@@ -74,5 +80,9 @@ public class UserScore {
 
     public void setIsSuper(boolean isSuper) {
         this.isSuper = isSuper;
+    }
+
+    public void setChance(int chance) {
+        this.chance = chance;
     }
 }
