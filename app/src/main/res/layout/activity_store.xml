@@ -37,7 +37,7 @@
         tools:ignore="MissingConstraints">
         <!-- Double Click -->
         <RelativeLayout
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:background="#A6F5F5F5"
             android:padding="5dp"
@@ -105,7 +105,7 @@
         </RelativeLayout>
         <!-- Triple Click -->
         <RelativeLayout
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:background="#A6F5F5F5"
             android:padding="5dp"
@@ -177,7 +177,7 @@
             android:layout_width="match_parent"
             android:background="#A6F5F5F5"
             android:padding="5dp"
-            android:layout_height="105dp">
+            android:layout_height="80dp">
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/superClick"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -239,23 +239,14 @@
                 android:layout_marginLeft="35dp"
                 android:textColor="#505050"
                 android:text="Цена: 900 монет" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/superCost"
-                android:layout_toRightOf = "@id/superImage"
-                android:layout_marginTop="3dp"
-                android:layout_marginLeft="30dp"
-                android:textColor="#505050"
-                android:text="(Шанс 30% сделать х5 клик)" />
         </RelativeLayout>
         <!-- Ultimate Click -->
         <RelativeLayout
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:background="#A6F5F5F5"
             android:padding="5dp"
-            android:layout_height="105dp">
+            android:layout_height="80dp">
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/ultimateClick"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -317,19 +308,10 @@
                 android:layout_marginLeft="35dp"
                 android:textColor="#505050"
                 android:text="Цена: 3850 монет" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/ultimateCost"
-                android:layout_toRightOf = "@id/ultimateImage"
-                android:layout_marginTop="3dp"
-                android:layout_marginLeft="30dp"
-                android:textColor="#505050"
-                android:text="(Шанс 50% сделать х5 клик)" />
         </RelativeLayout>
         <!-- Heaven Click -->
         <RelativeLayout
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:background="#A6F5F5F5"
             android:padding="5dp"
