@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
         levelView = findViewById(R.id.level);
         //User object
         userScore = new UserScore();
-        loadSave();
-        ScoreUpdate();
 
         clickButton.setOnClickListener(v -> {
             userScore.Click();
@@ -65,6 +63,13 @@ public class MainActivity extends AppCompatActivity {
         aboutButton.setOnClickListener(view -> {
             setChangeFragment();
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadSave();
+        ScoreUpdate();
     }
 
     @SuppressLint("SetTextI18n")
@@ -181,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Save and load statistic
     public void saveData(){
-        preferences = getPreferences(MODE_PRIVATE);
+        preferences = getApplication().getSharedPreferences("PREFS", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("coins", userScore.getCoins());
         editor.putInt("coef", userScore.getCoef());
@@ -193,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadSave(){
-        preferences = getPreferences(MODE_PRIVATE);
+        preferences = getApplication().getSharedPreferences("PREFS", MODE_PRIVATE);
         userScore.setCoins(preferences.getInt("coins", 0));
         userScore.setCoef(preferences.getInt("coef", 1));
         userScore.setLevel(preferences.getInt("level", 1));

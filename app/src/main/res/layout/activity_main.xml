@@ -15,8 +15,8 @@
 
         <TextView
             android:id="@+id/totalCoins"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
             android:textSize="26dp"
             android:text="Coins: 0"
             android:textColor="#505050"
@@ -25,7 +25,7 @@
 
         <TextView
             android:id="@+id/level"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="15dp"
             android:textSize="26dp"
             android:text="Level: 1"
             android:textColor="#505050"
@@ -52,7 +52,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="10dp"
         android:text="Store"
         tools:ignore="MissingConstraints" />

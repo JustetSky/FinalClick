@@ -1,6 +1,7 @@
 package com.example.finalclick;
 
 public class UserScore{
+    //Statistics
     private int coins = 0;
     private int coef = 1;
     private float exp = 0;

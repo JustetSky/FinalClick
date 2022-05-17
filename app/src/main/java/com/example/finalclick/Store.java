@@ -55,13 +55,16 @@ public class Store extends AppCompatActivity {
         heavenBought = findViewById(R.id.heavenBought);
 
         loadSave();
-
+        //Обработка покупки двойного клика
         doubleButton.setOnClickListener(view -> {
             int check = doubleCheck(MainActivity.userScore.getLevel(),
                 MainActivity.userScore.getCoins());
             if(check == 1){
-                MainActivity.userScore.setCoef(2);
-                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-150);
+                preferences = getApplication().getSharedPreferences("PREFS", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("coins", MainActivity.userScore.getCoins()-150);
+                editor.putInt("coef", 2);
+                editor.apply();
                 doubleUpdCheck = true;
                 doubleButton.setVisibility(View.GONE);
                 doubleBought.setVisibility(View.VISIBLE);
@@ -79,13 +82,16 @@ public class Store extends AppCompatActivity {
                 toast.show();
             }
         });
-
+        //Обработка покупки тройного клика
         tripleButton.setOnClickListener(view -> {
             int check = tripleCheck(MainActivity.userScore.getLevel(),
                     MainActivity.userScore.getCoins());
             if(check == 1){
-                MainActivity.userScore.setCoef(3);
-                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-600);
+                preferences = getApplication().getSharedPreferences("PREFS", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("coins", MainActivity.userScore.getCoins()-600);
+                editor.putInt("coef", 3);
+                editor.apply();
                 tripleUpdCheck = true;
                 tripleButton.setVisibility(View.GONE);
                 tripleBought.setVisibility(View.VISIBLE);
@@ -103,13 +109,16 @@ public class Store extends AppCompatActivity {
                 toast.show();
             }
         });
-
+        //Обработка покупки супер клика
         superButton.setOnClickListener(view -> {
             int check = superCheck(MainActivity.userScore.getLevel(),
                     MainActivity.userScore.getCoins());
             if(check == 1){
-                MainActivity.userScore.setIsSuper(true);
-                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-900);
+                preferences = getApplication().getSharedPreferences("PREFS", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("coins", MainActivity.userScore.getCoins()-900);
+                editor.putBoolean("isSuper", true);
+                editor.apply();
                 superUpdCheck = true;
                 superButton.setVisibility(View.GONE);
                 superBought.setVisibility(View.VISIBLE);
@@ -127,14 +136,17 @@ public class Store extends AppCompatActivity {
                 toast.show();
             }
         });
-
+        //Обработка покупки ультимейт клика
         ultimateButton.setOnClickListener(view -> {
             int check = ultimateCheck(MainActivity.userScore.getLevel(),
                     MainActivity.userScore.getCoins());
             if(check == 1){
-                MainActivity.userScore.setIsSuper(true);
-                MainActivity.userScore.setChance(2);
-                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-3850);
+                preferences = getApplication().getSharedPreferences("PREFS", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("coins", MainActivity.userScore.getCoins()-3850);
+                editor.putBoolean("isSuper", true);
+                editor.putInt("chance", 2);
+                editor.apply();
                 ultimateUpdCheck = true;
                 ultimateButton.setVisibility(View.GONE);
                 ultimateBought.setVisibility(View.VISIBLE);
@@ -152,13 +164,18 @@ public class Store extends AppCompatActivity {
                 toast.show();
             }
         });
-
+        //Обработка покупки небесного клика
         heavenButton.setOnClickListener(view -> {
             int check = heavenCheck(MainActivity.userScore.getLevel(),
                     MainActivity.userScore.getCoins());
             if(check == 1){
-                MainActivity.userScore.setCoef(7);
-                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-4050);
+                preferences = getApplication().getSharedPreferences("PREFS", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("coins", MainActivity.userScore.getCoins()-4050);
+                editor.putInt("coef", 7);
+                editor.apply();
+                /*MainActivity.userScore.setCoef(7);
+                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-4050);*/
                 heavenUpdCheck = true;
                 heavenButton.setVisibility(View.GONE);
                 heavenBought.setVisibility(View.VISIBLE);
@@ -176,7 +193,7 @@ public class Store extends AppCompatActivity {
                 toast.show();
             }
         });
-
+        //Сброс всех характеристик
         nullButton.setOnClickListener(view -> {
             builder = new AlertDialog.Builder(this);
             builder.setTitle("Warning");
@@ -189,13 +206,15 @@ public class Store extends AppCompatActivity {
                 heavenUpdCheck = false;
                 saveData();
                 setVisibilities();
-                MainActivity.userScore.setCoins(0);
-                MainActivity.userScore.setLevel(1);
-                MainActivity.userScore.setCoef(1);
-                MainActivity.userScore.setExp(0);
-                MainActivity.userScore.setProgress(0);
-                MainActivity.userScore.setIsSuper(false);
-                MainActivity.userScore.setChance(3);
+                preferences = getApplication().getSharedPreferences("PREFS", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("coins", 0);
+                editor.putInt("coef", 1);
+                editor.putInt("level", 1);
+                editor.putFloat("exp", 0);
+                editor.putBoolean("isSuper", false);
+                editor.putInt("chance", 3);
+                editor.apply();
                 infoUpdate();
             });
             builder.setNegativeButton("Отмена", (dialogInterface, i) -> dialog.dismiss());
