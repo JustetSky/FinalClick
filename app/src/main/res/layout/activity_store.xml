@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:background="#A6F5F5F5"
             android:padding="5dp"
-            android:layout_height="80dp">
+            android:layout_height="90dp">
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/doubleUpgrade"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -113,7 +113,7 @@
             android:layout_width="match_parent"
             android:background="#A6F5F5F5"
             android:padding="5dp"
-            android:layout_height="80dp">
+            android:layout_height="90dp">
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/tripleUpgrade"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -181,7 +181,7 @@
             android:layout_width="match_parent"
             android:background="#A6F5F5F5"
             android:padding="5dp"
-            android:layout_height="80dp">
+            android:layout_height="90dp">
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/superClick"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -250,7 +250,7 @@
             android:layout_width="match_parent"
             android:background="#A6F5F5F5"
             android:padding="5dp"
-            android:layout_height="80dp">
+            android:layout_height="90dp">
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/ultimateClick"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -319,7 +319,7 @@
             android:layout_width="match_parent"
             android:background="#A6F5F5F5"
             android:padding="5dp"
-            android:layout_height="80dp">
+            android:layout_height="90dp">
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/heavenClick"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
