@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         levelView = findViewById(R.id.level);
         //User object
         userScore = new UserScore();
+        loadSave();
 
         clickButton.setOnClickListener(v -> {
             userScore.Click();
@@ -69,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         loadSave();
-        ScoreUpdate();
     }
 
     @SuppressLint("SetTextI18n")
@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putFloat("exp", userScore.getExp());
         editor.putBoolean("isSuper", userScore.getIsSuper());
         editor.putInt("chance", userScore.getChance());
-        editor.commit();
+        editor.apply();
     }
 
     public void loadSave(){

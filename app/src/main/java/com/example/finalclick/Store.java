@@ -65,6 +65,8 @@ public class Store extends AppCompatActivity {
                 editor.putInt("coins", MainActivity.userScore.getCoins()-150);
                 editor.putInt("coef", 2);
                 editor.apply();
+                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-150);
+                MainActivity.userScore.setCoef(2);
                 doubleUpdCheck = true;
                 doubleButton.setVisibility(View.GONE);
                 doubleBought.setVisibility(View.VISIBLE);
@@ -92,6 +94,8 @@ public class Store extends AppCompatActivity {
                 editor.putInt("coins", MainActivity.userScore.getCoins()-600);
                 editor.putInt("coef", 3);
                 editor.apply();
+                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-600);
+                MainActivity.userScore.setCoef(3);
                 tripleUpdCheck = true;
                 tripleButton.setVisibility(View.GONE);
                 tripleBought.setVisibility(View.VISIBLE);
@@ -119,6 +123,8 @@ public class Store extends AppCompatActivity {
                 editor.putInt("coins", MainActivity.userScore.getCoins()-900);
                 editor.putBoolean("isSuper", true);
                 editor.apply();
+                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-900);
+                MainActivity.userScore.setIsSuper(true);
                 superUpdCheck = true;
                 superButton.setVisibility(View.GONE);
                 superBought.setVisibility(View.VISIBLE);
@@ -147,6 +153,9 @@ public class Store extends AppCompatActivity {
                 editor.putBoolean("isSuper", true);
                 editor.putInt("chance", 2);
                 editor.apply();
+                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-3850);
+                MainActivity.userScore.setIsSuper(true);
+                MainActivity.userScore.setChance(2);
                 ultimateUpdCheck = true;
                 ultimateButton.setVisibility(View.GONE);
                 ultimateBought.setVisibility(View.VISIBLE);
@@ -174,8 +183,8 @@ public class Store extends AppCompatActivity {
                 editor.putInt("coins", MainActivity.userScore.getCoins()-4050);
                 editor.putInt("coef", 7);
                 editor.apply();
-                /*MainActivity.userScore.setCoef(7);
-                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-4050);*/
+                MainActivity.userScore.setCoins(MainActivity.userScore.getCoins()-4050);
+                MainActivity.userScore.setChance(7);
                 heavenUpdCheck = true;
                 heavenButton.setVisibility(View.GONE);
                 heavenBought.setVisibility(View.VISIBLE);
@@ -215,6 +224,12 @@ public class Store extends AppCompatActivity {
                 editor.putBoolean("isSuper", false);
                 editor.putInt("chance", 3);
                 editor.apply();
+                MainActivity.userScore.setCoins(0);
+                MainActivity.userScore.setCoef(1);
+                MainActivity.userScore.setLevel(1);
+                MainActivity.userScore.setExp(0);
+                MainActivity.userScore.setIsSuper(false);
+                MainActivity.userScore.setChance(3);
                 infoUpdate();
             });
             builder.setNegativeButton("Отмена", (dialogInterface, i) -> dialog.dismiss());
@@ -288,7 +303,7 @@ public class Store extends AppCompatActivity {
     }
 
     private int ultimateCheck(int level, int coins){
-        if(level >= 9 && coins >= 3850){
+        if(level >= 11 && coins >= 3850){
             return 1;
         }
         else if(MainActivity.userScore.getLevel() < 11){
@@ -321,7 +336,7 @@ public class Store extends AppCompatActivity {
         editor.putBoolean("super", superUpdCheck);
         editor.putBoolean("ultimate", ultimateUpdCheck);
         editor.putBoolean("heaven", heavenUpdCheck);
-        editor.commit();
+        editor.apply();
     }
 
     public void loadSave(){
