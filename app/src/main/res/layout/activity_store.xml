@@ -41,7 +41,7 @@
         tools:ignore="MissingConstraints">
         <!-- Double Click -->
         <RelativeLayout
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:background="#A6F5F5F5"
             android:padding="5dp"
@@ -109,7 +109,7 @@
         </RelativeLayout>
         <!-- Triple Click -->
         <RelativeLayout
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:background="#A6F5F5F5"
             android:padding="5dp"
@@ -177,7 +177,7 @@
         </RelativeLayout>
         <!-- Super Click -->
         <RelativeLayout
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:background="#A6F5F5F5"
             android:padding="5dp"
@@ -246,7 +246,7 @@
         </RelativeLayout>
         <!-- Ultimate Click -->
         <RelativeLayout
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:background="#A6F5F5F5"
             android:padding="5dp"
@@ -315,7 +315,7 @@
         </RelativeLayout>
         <!-- Heaven Click -->
         <RelativeLayout
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:background="#A6F5F5F5"
             android:padding="5dp"
