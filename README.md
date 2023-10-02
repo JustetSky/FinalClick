@@ -1,2 +1,2 @@
 # FinalClick
-Simple mobile game about button, coins and experience.
+*Simple mobile game about button, coins and experience.*
